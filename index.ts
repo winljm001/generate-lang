@@ -1,6 +1,7 @@
 // 获取多语言文件夹内容根据目录返回json
 import * as config from "./generate-lang-config.json";
 import {
+  generateJSFiles,
   getAllwords,
   getExportExcelData,
   getImportExcel,
@@ -14,7 +15,7 @@ const main = async () => {
     throw new Error("缺少generate-lang-config.json配置文件");
   }
   // 读取ts文件
-  const mainLang = await readFileList(config?.mainLangPath);
+  const mainLang: any = await readFileList(config?.mainLangPath);
   // 获取所有单词
   const allword = unique(getAllwords(mainLang));
   const originData = { name: "zh-CN", data: allword };
@@ -31,6 +32,8 @@ const main = async () => {
       }),
     ];
   }
+  // 生成I18N文件
+  generateJSFiles(mainLang, importExcelData, config.outLang);
   // 导出excel
   writeExcel("I18N", getExportExcelData(importExcelData));
 };

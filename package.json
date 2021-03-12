@@ -11,7 +11,9 @@
   "license": "ISC",
   "devDependencies": {
     "@types/node-xlsx": "^0.15.1",
+    "@types/prettier": "^2.2.2",
     "node-xlsx": "^0.16.1",
+    "prettier": "^2.2.1",
     "prompt": "^1.1.0"
   },
   "dependencies": {

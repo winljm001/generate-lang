@@ -1,5 +1,11 @@
 import xlsx from "node-xlsx";
 import fs from "fs";
+import prettier from "prettier";
+
+const prettierOptions = {
+  singleQuote: true,
+  semi: false,
+};
 // 数组去重
 export const unique = (arr: any[]) => {
   return Array.from(new Set(arr));
@@ -78,6 +84,8 @@ export const getExportExcelData = (data: any) => {
   const resData = [{ name: "sheet1", data: res }];
   return resData;
 };
+
+// 导出excel
 export const writeExcel = (name: any, data: any) => {
   try {
     if (!fs.existsSync("./excel")) {
@@ -85,6 +93,31 @@ export const writeExcel = (name: any, data: any) => {
     }
     const buffer: any = xlsx.build(data);
     fs.writeFileSync("./excel/" + name + ".xlsx", buffer, { flag: "w" });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+// 多语言文件生成
+export const generateJSFiles = (
+  mainLang: any,
+  importExcelData: any,
+  outLang: any
+) => {
+  outLang?.forEach((v: any) => {
+    writeTs(v, mainLang.default);
+  });
+};
+
+// 生成ts
+export const writeTs = (name: any, data: any) => {
+  try {
+    if (!fs.existsSync("./dist")) {
+      fs.mkdirSync("./dist");
+    }
+    const scriptContent = `export default ${JSON.stringify(data)}`;
+    const prettierContent = prettier.format(scriptContent, prettierOptions);
+    fs.writeFileSync("./dist/" + name + ".ts", prettierContent);
   } catch (error) {
     console.log(error);
   }

@@ -6,6 +6,7 @@
 
 # production
 /excel
+/dist
 
 # misc
 .DS_Store

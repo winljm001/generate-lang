@@ -31,6 +31,11 @@
   resolved "https://registry.npm.taobao.org/@types/node/download/@types/node-14.14.33.tgz#9e4f8c64345522e4e8ce77b334a8aaa64e2b6c78"
   integrity sha1-nk+MZDRVIuToznezNKiqpk4rbHg=
 
+"@types/prettier@^2.2.2":
+  version "2.2.2"
+  resolved "https://registry.npm.taobao.org/@types/prettier/download/@types/prettier-2.2.2.tgz#e2280c89ddcbeef340099d6968d8c86ba155fdf6"
+  integrity sha1-4igMid3L7vNACZ1paNjIa6FV/fY=
+
 D@^1.0.0:
   version "1.0.0"
   resolved "https://registry.npm.taobao.org/D/download/D-1.0.0.tgz#c348a4e034f72847be51206fc530fc089e9cc2a9"
@@ -766,6 +771,11 @@ prepend-http@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npm.taobao.org/prepend-http/download/prepend-http-2.0.0.tgz#e92434bfa5ea8c19f41cdfd401d741a3c819d897"
   integrity sha1-6SQ0v6XqjBn0HN/UAddBo8gZ2Jc=
+
+prettier@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.npm.taobao.org/prettier/download/prettier-2.2.1.tgz#795a1a78dd52f073da0cd42b21f9c91381923ff5"
+  integrity sha1-eVoaeN1S8HPaDNQrIfnJE4GSP/U=
 
 printj@~1.1.0, printj@~1.1.2:
   version "1.1.2"

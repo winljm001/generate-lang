@@ -1,0 +1,6 @@
+{
+  "outLang": ["en-US", "th-TH", "vi-VN"],
+  "mainLangPath": "D:/project/gscm-admin-web/src/i18n/langs/zh-CN/index.ts",
+  "importExcel": "",
+  "outExcel": ""
+}

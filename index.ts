@@ -26,7 +26,7 @@ const main = async () => {
   } else {
     importExcelData = [
       originData,
-      config?.outLang.map((v) => {
+      ...config?.outLang.map((v) => {
         return { name: v, data: [] };
       }),
     ];

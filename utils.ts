@@ -60,7 +60,6 @@ export const getImportExcel = (importExcelPath: string) => {
 // 生成Excel文件的数据
 
 export const getExportExcelData = (data: any) => {
-  // console.log("data", data);
   let res: any = [];
   const titleRow: any[] = [];
   const dataList: any[] = [];

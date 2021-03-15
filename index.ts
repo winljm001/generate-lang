@@ -17,13 +17,15 @@ const main = async () => {
   // 读取ts文件
   const mainLang: any = await readFileList(config?.mainLangPath);
   // 获取所有单词
-  const allword = unique(getAllwords(mainLang));
+  const allword = getAllwords(mainLang?.default);
   const originData = { name: "zh-CN", data: allword };
-
   // 读取导入的Excel,没有则为空数组
   let importExcelData: any[] = [];
   if (config?.importExcel) {
-    importExcelData = getImportExcel(config?.importExcel);
+    const outData = getImportExcel(config?.importExcel);
+    importExcelData = outData.map((v) => {
+      return v?.name === "zh-CN" ? originData : v;
+    });
   } else {
     importExcelData = [
       originData,
@@ -33,8 +35,8 @@ const main = async () => {
     ];
   }
   // 生成I18N文件
-  generateJSFiles(mainLang, importExcelData, config.outLang);
-  // 导出excel
+  generateJSFiles(mainLang?.default, importExcelData, config.outLang);
+  // // 导出excel
   writeExcel("I18N", getExportExcelData(importExcelData));
 };
 

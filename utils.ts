@@ -124,7 +124,6 @@ export const generateJSFiles = (
 ) => {
   outLang?.forEach((v: any) => {
     const originData = importExcelData.find((item: any) => {
-      console.log(item);
       return item?.name === v;
     })?.data;
     writeTs(v, replaceLang(mainLang, originData));

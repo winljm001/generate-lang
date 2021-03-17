@@ -78,7 +78,9 @@ export const getExportExcelData = (data: any) => {
   data[0].data.forEach((v: any, i: any) => {
     const tempItem: any[] = [v?.key];
     data.forEach((item: any, j: any) => {
-      tempItem[j + 1] = item?.data[i]?.value;
+      tempItem[j + 1] = item?.data?.find((keyItem:any)=>{
+        return keyItem?.key===v?.key
+      })?.value;
     });
     dataList.push(tempItem);
   });
